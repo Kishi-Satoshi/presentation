@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>京都 二泊三日 旅のしおり｜2026.9.16–18</title>
+<style>
+:root{
+  --paper:#e9e5d8;
+  --paper-hi:#f3f0e6;
+  --ink:#1a2320;
+  --ink-2:#4d5751;
+  --rail:#1e5945;
+  --stamp:#b0362b;
+  --brass:#9a7a2c;
+  --indigo:#2f3b8f;
+  --rule:#c2bba8;
+  --rule-2:#d6d0c0;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --mono:ui-monospace,"SFMono-Regular","Menlo","Consolas","Roboto Mono",monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(26,35,32,.022) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(90deg,rgba(26,35,32,.018) 0 1px,transparent 1px 3px);
+  color:var(--ink);font-family:var(--gothic);font-size:15px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:18px 16px 72px;}
+
+/* ===== 硬券きっぷ ===== */
+.ticket{position:relative;background:var(--paper-hi);border:2px solid var(--ink);
+  box-shadow:3px 3px 0 rgba(26,35,32,.18);padding:20px 22px 18px;overflow:hidden;}
+.ticket::before{content:"";position:absolute;inset:5px;border:1px solid var(--rule);pointer-events:none;}
+.ticket::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(115deg,transparent 0 7px,rgba(30,89,69,.07) 7px 8px);}
+.tk-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-2);
+  border-bottom:1px solid var(--rule);padding-bottom:7px;position:relative;z-index:1;}
+.tk-route{position:relative;z-index:1;margin:16px 0 6px;
+  font-size:clamp(27px,7.6vw,44px);font-weight:800;letter-spacing:.06em;line-height:1.15;}
+.tk-route .arw{color:var(--stamp);font-family:var(--mono);font-weight:400;margin:0 .12em;}
+.tk-sub{position:relative;z-index:1;font-family:var(--mincho);font-size:14px;color:var(--ink-2);
+  letter-spacing:.08em;margin:0 0 16px;}
+.tk-grid{position:relative;z-index:1;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:2px 10px;border-top:1px solid var(--rule);}
+.tk-cell{padding:9px 2px 2px;}
+.tk-cell dt{font-size:10px;letter-spacing:.14em;color:var(--ink-2);margin-bottom:1px;}
+.tk-cell dd{margin:0;font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.02em;line-height:1.5;}
+.tk-cell ruby{ruby-position:over;-webkit-ruby-position:before;}
+.tk-cell rt{font-family:var(--gothic);font-size:8.5px;font-weight:600;
+  letter-spacing:.02em;color:var(--ink-2);line-height:1;}
+.punch{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:26px;height:26px;
+  border-radius:50%;background:var(--paper);border:1px dashed var(--rule);z-index:1;}
+
+/* ===== セクション ===== */
+.sec{margin:38px 0 0;}
+.sec-hd{display:flex;align-items:center;gap:11px;border-bottom:2px solid var(--ink);
+  padding-bottom:5px;margin-bottom:16px;}
+.sec-no{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  background:var(--rail);color:var(--paper-hi);padding:3px 7px;white-space:nowrap;}
+.sec-hd h2{margin:0;font-size:17px;font-weight:800;letter-spacing:.09em;}
+.sec-hd .memo{margin-left:auto;font-size:11px;color:var(--ink-2);letter-spacing:.04em;white-space:nowrap;}
+
+/* ===== Googleマップ リンク ===== */
+.gmap{display:inline-flex;align-items:center;gap:6px;margin-top:7px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  border:1px solid var(--rail);color:var(--rail);background:var(--paper);
+  padding:3px 9px;text-decoration:none;white-space:nowrap;}
+.gmap:hover,.gmap:focus-visible{background:var(--rail);color:var(--paper-hi);}
+.gmap::before{content:"⌖";font-size:12px;line-height:1;}
+
+/* ===== 東西の地図解説 ===== */
+.zonemap{border:1px solid var(--rule);background:var(--paper-hi);padding:14px 12px 8px;}
+.zonemap svg{width:100%;height:auto;display:block;}
+.zonekey{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-2);
+  padding:8px 4px 2px;border-top:1px dashed var(--rule);margin-top:6px;}
+.zonekey b{color:var(--ink);}
+
+/* ===== 乗換表 ===== */
+.legs{border:1px solid var(--rule);background:var(--paper-hi);}
+.leg{display:grid;grid-template-columns:74px 1fr auto;gap:12px;align-items:baseline;
+  padding:11px 13px;border-bottom:1px dashed var(--rule-2);}
+.leg:last-child{border-bottom:none;}
+.leg-t{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--rail);}
+.leg-b strong{font-weight:700;}
+.leg-b span{display:block;font-size:12.5px;color:var(--ink-2);}
+.leg-d{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);white-space:nowrap;}
+
+/* ===== タイムライン ===== */
+.day{margin-top:26px;border:1px solid var(--rule);background:var(--paper-hi);}
+.day-hd{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  background:var(--rail);color:var(--paper-hi);padding:11px 15px;}
+.day-hd b{font-family:var(--mono);font-size:12px;letter-spacing:.2em;opacity:.75;}
+.day-hd h3{margin:0;font-size:16px;font-weight:800;letter-spacing:.08em;}
+.day-hd em{margin-left:auto;font-style:normal;font-family:var(--mincho);
+  font-size:12.5px;letter-spacing:.06em;opacity:.92;}
+.rail{list-style:none;margin:0;padding:16px 15px 18px;
+  display:grid;grid-template-columns:56px 22px 1fr;column-gap:4px;align-items:start;}
+.stop{display:contents;}
+.stop-t{font-family:var(--mono);font-size:12.5px;font-weight:600;
+  line-height:1.6;padding-top:2px;}
+.stop-mk{position:relative;}
+.stop-mk::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;
+  margin-left:-1px;background:var(--rule);}
+.stop:last-child .stop-mk::before{bottom:auto;height:10px;}
+.stop-mk::after{content:"";position:absolute;left:11px;top:8px;width:11px;height:11px;
+  margin-left:-5.5px;border-radius:50%;background:var(--paper-hi);border:2px solid var(--rail);}
+.stop.key .stop-mk::after{background:var(--stamp);border-color:var(--stamp);}
+.stop-b{min-width:0;padding:0 0 15px 8px;}
+.stop-b h4{margin:0 0 2px;font-size:14.5px;font-weight:700;letter-spacing:.03em;line-height:1.6;}
+.stop-b p{margin:0;font-size:13px;color:var(--ink-2);}
+.stop-b .tag{display:inline-block;margin:6px 5px 0 0;font-size:10.5px;letter-spacing:.08em;
+  line-height:1.7;border:1px solid var(--rule);padding:1px 7px;color:var(--ink-2);background:var(--paper);}
+.stop-b .tag.must{border-color:var(--stamp);color:var(--stamp);font-weight:700;}
+.stop-b .tag.book{border-color:var(--indigo);color:var(--indigo);font-weight:700;
+  background:rgba(47,59,143,.09);letter-spacing:.12em;}
+.move{grid-column:2 / -1;position:relative;padding:0 0 15px 34px;margin-top:-7px;
+  font-family:var(--mono);font-size:11.5px;line-height:1.75;color:var(--ink-2);}
+.move::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;
+  margin-left:-1px;background:var(--rule);}
+.move .gmap{margin-top:6px;}
+
+/* ===== 昼ごはん ===== */
+.lunch{margin-top:22px;border:1px solid var(--rule);background:var(--paper-hi);}
+.lunch-hd{padding:10px 15px;border-bottom:1px solid var(--rule);
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.lunch-hd b{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--stamp);}
+.lunch-hd h3{margin:0;font-size:15px;font-weight:800;letter-spacing:.06em;}
+.lunch-hd span{margin-left:auto;font-size:11.5px;color:var(--ink-2);}
+.pick{display:grid;grid-template-columns:26px 1fr;gap:0 11px;padding:14px 15px;
+  border-bottom:1px dashed var(--rule-2);}
+.pick:last-child{border-bottom:none;}
+.pick-n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--paper-hi);
+  background:var(--ink);width:22px;height:22px;display:grid;place-items:center;margin-top:2px;}
+.pick.reco .pick-n{background:var(--stamp);}
+.pick h4{margin:0 0 3px;font-size:14.5px;font-weight:700;}
+.pick .yen{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--rail);
+  margin-left:8px;white-space:nowrap;}
+.pick p{margin:0;font-size:12.5px;color:var(--ink-2);}
+.pick .where{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-2);margin-top:4px;}
+
+/* ===== エレベーター ===== */
+.elev{margin-top:22px;border:2px solid var(--brass);background:var(--paper-hi);
+  display:grid;grid-template-columns:96px 1fr;gap:0 14px;padding:16px;align-items:start;}
+.elev svg{width:96px;height:auto;display:block;}
+.elev h3{margin:0 0 4px;font-size:15px;font-weight:800;letter-spacing:.06em;color:var(--brass);}
+.elev p{margin:0 0 7px;font-size:12.5px;color:var(--ink-2);}
+.elev .warn{font-size:12px;color:var(--stamp);font-weight:700;
+  border-top:1px dashed var(--rule);padding-top:7px;margin:0;}
+
+/* ===== 汎用 ===== */
+.note{border-left:4px solid var(--stamp);background:var(--paper-hi);
+  padding:12px 14px;margin:16px 0 0;font-size:13px;}
+.note b{color:var(--stamp);}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:14px;}
+.card{border:1px solid var(--rule);background:var(--paper-hi);padding:13px 15px;}
+.card h4{margin:0 0 8px;font-size:12px;letter-spacing:.13em;color:var(--ink-2);
+  border-bottom:1px solid var(--rule-2);padding-bottom:5px;}
+.card ul{margin:0;padding-left:1.1em;font-size:13px;}
+.card li{margin-bottom:4px;}
+.card p{font-size:13px;margin:0 0 8px;}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px;margin:0;}
+.kv dt{color:var(--ink-2);white-space:nowrap;}
+.kv dd{margin:0;font-family:var(--mono);font-size:13px;}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  gap:2px 16px;margin:0;padding:0;list-style:none;}
+.checks li{border-bottom:1px dotted var(--rule);padding:5px 0;}
+.checks label{display:flex;gap:9px;align-items:flex-start;cursor:pointer;font-size:13.5px;}
+.checks input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:15px;height:15px;
+  margin-top:4px;border:1.5px solid var(--rail);background:var(--paper);}
+.checks input:checked{background:var(--rail);box-shadow:inset 0 0 0 2.5px var(--paper);}
+.checks input:focus-visible{outline:2px solid var(--stamp);outline-offset:2px;}
+.checks input:checked + span{color:var(--ink-2);text-decoration:line-through;}
+table.cost{width:100%;border-collapse:collapse;font-size:13px;}
+table.cost th,table.cost td{border-bottom:1px dashed var(--rule-2);padding:7px 4px;text-align:left;}
+table.cost th{font-weight:600;color:var(--ink-2);font-size:12px;letter-spacing:.06em;}
+table.cost td.n{font-family:var(--mono);text-align:right;white-space:nowrap;}
+table.cost tr.sum td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800;padding-top:9px;}
+.foot{margin-top:44px;border-top:2px solid var(--ink);padding-top:12px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-2);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+a{color:var(--rail);}
+a:focus-visible{outline:2px solid var(--stamp);outline-offset:2px;}
+
+@media (max-width:520px){
+  .rail{grid-template-columns:46px 20px 1fr;padding:14px 12px 16px;}
+  .stop-mk::before,.stop-mk::after,.move::before{left:10px;}
+  .move{padding-left:32px;}
+  .leg{grid-template-columns:64px 1fr;}
+  .leg-d{grid-column:2;font-size:11px;}
+  .elev{grid-template-columns:1fr;}
+  .elev svg{width:82px;margin-bottom:8px;}
+  .punch{display:none;}
+}
+@media print{
+  body{background:#fff;font-size:11.5px;}
+  .wrap{max-width:none;padding:0;}
+  .day,.lunch,.card,.legs,.ticket,.elev,.zonemap{break-inside:avoid;box-shadow:none;}
+  .gmap::after{content:" (" attr(href) ")";font-size:8px;}
+}
+@media (prefers-reduced-motion:no-preference){
+  .ticket{animation:rise .5s ease-out both;}
+  @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav style="margin:0 0 12px;">
+  <a href="./" style="display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--rail);text-decoration:none;border:1.5px solid var(--rail);padding:5px 14px;background:var(--paper-hi);box-shadow:2px 2px 0 rgba(26,35,32,.15);">⌂ ホームに戻る</a>
+</nav>
+
+<header class="ticket">
+  <div class="punch" aria-hidden="true"></div>
+  <div class="tk-head"><span>TJK 保養所 / 京都梅小路 花伝抄</span><span>NO. 2026021696</span></div>
+  <p class="tk-route">高井戸 <span class="arw">▶</span> 京都市内</p>
+  <p class="tk-sub">二泊三日　東へ一日、西へ一日</p>
+  <dl class="tk-grid">
+    <div class="tk-cell"><dt>出発</dt><dd>2026.9.16 <small>水</small></dd></div>
+    <div class="tk-cell"><dt>帰着</dt><dd>2026.9.18 <small>金</small></dd></div>
+    <div class="tk-cell"><dt>人数</dt><dd>大人2 小人2</dd></div>
+    <div class="tk-cell"><dt>役職</dt><dd><ruby>X<rt>マックス</rt></ruby>部長</dd></div>
+    <div class="tk-cell"><dt>代表者</dt><dd>岸 穂高</dd></div>
+  </dl>
+</header>
+
+<!-- ============ 00 ルートの考え方 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">00</span><h2>なぜこの順番なのか</h2><span class="memo">東西を分ける</span></div>
+
+  <div class="zonemap">
+    <svg viewBox="0 0 700 250" role="img" aria-label="京都市内の東西エリアとJR嵯峨野線の位置関係を示す図">
+      <!-- 同日NGの弧 -->
+      <path d="M250 78 C 330 34, 560 46, 636 74" fill="none" stroke="#b0362b" stroke-width="1.6" stroke-dasharray="6 5"/>
+      <text x="443" y="24" text-anchor="middle" fill="#b0362b" font-size="13" font-weight="bold"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif">バスで約1時間 — 同じ日に入れない</text>
+
+      <!-- JR嵯峨野線 -->
+      <line x1="40" y1="170" x2="520" y2="170" stroke="#1e5945" stroke-width="5"/>
+      <text x="118" y="196" fill="#1e5945" font-size="12" font-weight="bold"
+            font-family="ui-monospace,monospace">JR 嵯峨野線</text>
+
+      <!-- 駅 -->
+      <g fill="#f3f0e6" stroke="#1e5945" stroke-width="3">
+        <circle cx="60" cy="170" r="7"/><circle cx="255" cy="170" r="7"/>
+        <circle cx="420" cy="170" r="9"/><circle cx="510" cy="170" r="7"/>
+      </g>
+      <g font-size="12.5" font-family="Hiragino Kaku Gothic ProN,sans-serif" fill="#1a2320" text-anchor="middle">
+        <text x="60" y="152">嵯峨嵐山</text>
+        <text x="255" y="152">円町</text>
+        <text x="420" y="145" font-weight="bold">梅小路京都西</text>
+        <text x="420" y="221" font-size="11.5" fill="#4d5751">宿はここ</text>
+        <text x="512" y="152">京都</text>
+      </g>
+      <g font-size="10.5" font-family="ui-monospace,monospace" fill="#4d5751" text-anchor="middle">
+        <text x="158" y="188">18分</text><text x="338" y="188">7分</text><text x="466" y="188">4分</text>
+      </g>
+
+      <!-- 金閣寺 -->
+      <line x1="255" y1="163" x2="255" y2="95" stroke="#1e5945" stroke-width="1.6" stroke-dasharray="4 4"/>
+      <circle cx="255" cy="78" r="9" fill="#b0362b"/>
+      <text x="255" y="68" text-anchor="middle" font-size="13.5" font-weight="bold"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif" fill="#1a2320">金閣寺</text>
+      <text x="285" y="128" font-size="10.5" font-family="ui-monospace,monospace" fill="#4d5751">バス10分</text>
+
+      <!-- 嵐山まわり -->
+      <circle cx="60" cy="78" r="9" fill="#b0362b"/>
+      <text x="60" y="68" text-anchor="middle" font-size="13.5" font-weight="bold"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif" fill="#1a2320">嵐山</text>
+      <line x1="60" y1="163" x2="60" y2="95" stroke="#1e5945" stroke-width="1.6" stroke-dasharray="4 4"/>
+      <text x="88" y="128" font-size="10.5" font-family="ui-monospace,monospace" fill="#4d5751">徒歩</text>
+      <line x1="70" y1="78" x2="243" y2="78" stroke="#9a7a2c" stroke-width="1.6"/>
+      <text x="156" y="70" text-anchor="middle" font-size="10.5"
+            font-family="ui-monospace,monospace" fill="#9a7a2c">嵐電 30分</text>
+
+      <!-- 東エリア -->
+      <line x1="518" y1="166" x2="578" y2="130" stroke="#1e5945" stroke-width="1.6" stroke-dasharray="4 4"/>
+      <text x="530" y="163" font-size="10.5" font-family="ui-monospace,monospace" fill="#4d5751">バス20分</text>
+      <circle cx="590" cy="122" r="9" fill="#b0362b"/>
+      <text x="590" y="112" text-anchor="middle" font-size="13.5" font-weight="bold"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif" fill="#1a2320">東華菜館</text>
+      <line x1="600" y1="118" x2="628" y2="86" stroke="#9a7a2c" stroke-width="1.6"/>
+      <text x="672" y="112" text-anchor="middle" font-size="10.5"
+            font-family="ui-monospace,monospace" fill="#9a7a2c">徒歩30分</text>
+      <circle cx="636" cy="74" r="9" fill="#b0362b"/>
+      <text x="636" y="64" text-anchor="middle" font-size="13.5" font-weight="bold"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif" fill="#1a2320">清水寺</text>
+
+      <!-- エリア帯 -->
+      <text x="130" y="238" font-size="12" font-weight="bold" fill="#1e5945"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif">◀ 西エリア ＝ 2日目</text>
+      <text x="570" y="238" font-size="12" font-weight="bold" fill="#1e5945"
+            font-family="Hiragino Kaku Gothic ProN,sans-serif" text-anchor="middle">東エリア ＝ 1日目 ▶</text>
+    </svg>
+    <div class="zonekey">
+      <span><b>●</b> 行きたい場所</span><span><b>━</b> JR嵯峨野線</span>
+      <span><b>┅</b> バス・徒歩の乗り継ぎ</span>
+    </div>
+  </div>
+
+  <div class="cols" style="margin-top:16px;">
+    <div class="card">
+      <h4>金閣寺と清水寺は、京都の対角線</h4>
+      <p>直線でも約8km、市バスだと四条河原町での乗り換えを挟んで<b>片道1時間前後</b>。同じ日に入れると、それだけで移動に2時間以上を取られます。だから分けます。</p>
+      <p style="margin:0;">一方<b>金閣寺と嵐山は、どちらも「西」</b>。嵐電で約30分、JRでも約35分の距離なので、同じ日にまとめても無理がありません。</p>
+    </div>
+    <div class="card">
+      <h4>宿がJR嵯峨野線の上にある</h4>
+      <p>梅小路京都西駅は、嵐山（嵯峨嵐山）まで<b>乗り換えなし18分</b>、金閣寺の玄関口（円町）まで<b>7分</b>、京都駅まで<b>4分</b>。</p>
+      <p style="margin:0;">つまりこの宿は<b>「西へは電車一本、東へは京都駅からバス」</b>。西日と東日に割るのが、いちばん自然な使い方になります。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>結論：1日目＝東（東華菜館・清水寺）／2日目＝西（トロッコ・竹林・金閣寺）／3日目＝宿の目の前（鉄道博物館）。</b>
+    1日目に東を入れるのは、鉄道博物館が<b>水曜休館</b>で、9/16（水）に行けないためです。そのぶん初日は品川8時半ののぞみに乗る前提になります。
+  </div>
+</section>
+
+<!-- ============ 01 宿 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">01</span><h2>泊まるところ</h2><span class="memo">IN 15:00 / OUT 11:00</span></div>
+  <div class="cols">
+    <div class="card">
+      <h4>京都 梅小路 花伝抄</h4>
+      <dl class="kv">
+        <dt>電話</dt><dd>075-316-0055</dd>
+        <dt>住所</dt><dd>下京区朱雀内畑町41-10</dd>
+        <dt>最寄</dt><dd>JR梅小路京都西 徒歩1分</dd>
+        <dt>部屋</dt><dd>2〜3名 × 2室</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h4>食事（1泊2食付）</h4>
+      <ul>
+        <li><b>夕食</b>：和会席／<b>17:30〜 か 20:00〜 の2部制</b>。チェックイン時に選択</li>
+        <li><b>朝食</b>：フルバイキング。2日目は8:00までに済ませたい</li>
+        <li>昼だけ外で調達 → <a href="#lunch">04 お昼ごはん</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">
+    <b>チェックイン時に必要</b>　TJKの資格確認書類（マイナ保険証・資格確認書など）。アレルギー申告は<b>9/13（日）まで</b>にTJKサイトから。
+  </div>
+</section>
+
+<!-- ============ 02 往路 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">02</span><h2>行きの乗り継ぎ</h2><span class="memo">所要 約3時間20分</span></div>
+  <div class="legs">
+    <div class="leg"><span class="leg-t">07:40</span>
+      <span class="leg-b"><strong>高井戸 → 渋谷</strong><span>京王井の頭線・急行</span></span>
+      <span class="leg-d">13分</span></div>
+    <div class="leg"><span class="leg-t">08:00</span>
+      <span class="leg-b"><strong>渋谷 → 品川</strong><span>JR山手線（外回り）</span></span>
+      <span class="leg-d">12分</span></div>
+    <div class="leg"><span class="leg-t">08:30</span>
+      <span class="leg-b"><strong>品川 → 京都</strong><span>東海道新幹線 のぞみ・普通車指定席</span></span>
+      <span class="leg-d">2時間10分</span></div>
+    <div class="leg"><span class="leg-t">10:50</span>
+      <span class="leg-b"><strong>京都 → 梅小路京都西</strong><span>JR嵯峨野線・1駅</span></span>
+      <span class="leg-d">4分</span></div>
+  </div>
+  <a class="gmap" target="_blank" rel="noopener"
+     href="https://www.google.com/maps/dir/?api=1&origin=%E9%AB%98%E4%BA%95%E6%88%B8%E9%A7%85&destination=%E4%BA%AC%E9%83%BD%E9%A7%85&travelmode=transit">高井戸駅 → 京都駅 をマップで見る</a>
+  <a class="gmap" target="_blank" rel="noopener"
+     href="https://www.google.com/maps/dir/?api=1&origin=%E4%BA%AC%E9%83%BD%E9%A7%85&destination=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&travelmode=transit">京都駅 → 花伝抄</a>
+  <div class="note">
+    東京駅ではなく<b>品川乗車</b>。渋谷から山手線1本で着きます。初日に清水寺まで回るので、<b>品川8時半のぞみが実質のリミット</b>。これより遅いと東華菜館のラストオーダー（14:30）に間に合いません。
+  </div>
+</section>
+
+<!-- ============ 03 行程 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">03</span><h2>三日間の行程</h2><span class="memo">■＝必須スポット</span></div>
+
+  <!-- DAY 1 -->
+  <div class="day">
+    <div class="day-hd"><b>DAY 1</b><h3>9月16日（水）</h3><em>東エリア — 鴨川から東山へ</em></div>
+    <div class="rail">
+      <div class="stop"><span class="stop-t">10:40</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>京都駅 到着</h4><p>そのままJR嵯峨野線で1駅、宿へ直行して荷物を置きます。</p></div></div>
+      <div class="stop"><span class="stop-t">11:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>花伝抄に荷物を預ける</h4><p>チェックイン15:00前でも預かってもらえます。ここで身軽になるのが今日の要。</p></div></div>
+      <div class="move">▸ JRで京都駅へ戻り、駅前B3のりばから市バス（205など）で四条河原町／約25分
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&destination=%E6%9D%B1%E8%8F%AF%E8%8F%9C%E9%A4%A8%20%E6%9C%AC%E5%BA%97%20%E5%9B%9B%E6%9D%A1%E5%A4%A7%E6%A9%8B&travelmode=transit">花伝抄 → 東華菜館</a></div>
+      <div class="stop key"><span class="stop-t">12:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>東華菜館 本店 ＝ 日本最古のエレベーター</h4>
+          <p>12:00で予約を。エレベーターに乗って客席へ上がるのが、この旅の目的のひとつ。</p>
+          <span class="tag must">■ 必須</span><span class="tag book">要予約</span><span class="tag">14:30 L.O.</span></div></div>
+      <div class="move">▸ 徒歩／四条大橋 → 南座 → 花見小路 → 八坂神社 → ねねの道 → 二年坂・三年坂（約2.3km）
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E6%9D%B1%E8%8F%AF%E8%8F%9C%E9%A4%A8%20%E6%9C%AC%E5%BA%97%20%E5%9B%9B%E6%9D%A1%E5%A4%A7%E6%A9%8B&destination=%E6%B8%85%E6%B0%B4%E5%AF%BA&waypoints=%E5%85%AB%E5%9D%82%E7%A5%9E%E7%A4%BE%7C%E4%BA%8C%E5%B9%B4%E5%9D%82&travelmode=walking">東華菜館 → 八坂神社 → 二年坂 → 清水寺（徒歩ルート）</a></div>
+      <div class="stop"><span class="stop-t">13:40</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>祇園・東山を歩く</h4><p>石畳と町家の坂道。八ツ橋の試食やソフトクリームで足が止まる区間なので、時間は多めに。</p></div></div>
+      <div class="stop key"><span class="stop-t">14:45</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>清水寺</h4><p>舞台からの市街地の眺めと音羽の滝。夕方は団体客が引いて歩きやすくなります。</p>
+          <span class="tag must">■ 必須</span><span class="tag">6:00–18:00</span><span class="tag">大人500円／小中200円</span></div></div>
+      <div class="move">▸ 五条坂バス停から市バス206で京都駅（約25分）→ JR1駅
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E6%B8%85%E6%B0%B4%E5%AF%BA&destination=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&travelmode=transit">清水寺 → 花伝抄</a></div>
+      <div class="stop"><span class="stop-t">17:05</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>チェックイン</h4><p>17:30の夕食までは駆け足。ゆっくり湯に浸かりたければ、初日だけ<b>20:00の回</b>にしておくのが正解です。</p></div></div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day">
+    <div class="day-hd"><b>DAY 2</b><h3>9月17日（木）</h3><em>西エリア — 保津峡から金閣寺へ</em></div>
+    <div class="rail">
+      <div class="stop"><span class="stop-t">08:15</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>宿を出発</h4><p>朝食は7:30には席に。今日は<b>トロッコの発車時刻が全体を決めます</b>。</p></div></div>
+      <div class="move">▸ 梅小路京都西 8:25頃 → 嵯峨嵐山 8:45頃／JR嵯峨野線 直通 約18分
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&destination=%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E5%B5%AF%E5%B3%A8%E9%A7%85&travelmode=transit">花伝抄 → トロッコ嵯峨駅</a></div>
+      <div class="stop key"><span class="stop-t">09:02</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>嵯峨野トロッコ列車　嵯峨 → 亀岡</h4>
+          <p>保津峡の渓谷沿いを8つのトンネルを抜けて25分。トロッコ嵯峨駅はJR嵯峨嵐山駅のとなりです。<b>全車指定席なので必ず事前予約を。</b>窓側はA席・D席。</p>
+          <span class="tag must">■ トロッコ</span><span class="tag book">要予約</span><span class="tag">大人880円／小人440円</span><span class="tag">水曜運休</span></div></div>
+      <div class="move">▸ トロッコ亀岡駅から徒歩10分でJR馬堀駅 → 嵯峨嵐山へ戻る（約10分）
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3%E4%BA%80%E5%B2%A1%E9%A7%85&destination=%E9%A6%AC%E5%A0%80%E9%A7%85&travelmode=walking">トロッコ亀岡 → JR馬堀（徒歩）</a>
+        <a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E9%A6%AC%E5%A0%80%E9%A7%85&destination=%E5%B5%AF%E5%B3%A8%E5%B5%90%E5%B1%B1%E9%A7%85&travelmode=transit">馬堀 → 嵯峨嵐山</a></div>
+      <div class="stop key"><span class="stop-t">10:05</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>竹林の小径</h4>
+          <p>嵯峨嵐山駅から徒歩10分。昼を過ぎると人でいっぱいになるので、<b>午前中に通り抜けるのが正解</b>。無料・通り抜け自由。</p>
+          <span class="tag must">■ 竹林</span><span class="tag">所要20〜30分</span></div></div>
+      <div class="stop"><span class="stop-t">10:45</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>天龍寺</h4><p>竹林の南口を出るとすぐ。曹源池庭園は嵐山と亀山を借景にした池泉回遊式で、世界遺産。庭園だけなら短時間で回れます。</p>
+          <span class="tag">8:30–17:00</span><span class="tag">庭園 500円／小中300円</span></div></div>
+      <div class="move">▸ 徒歩で渡月橋まで／竹林・天龍寺・渡月橋は一本道でつながっています
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E5%B5%AF%E5%B3%A8%E5%B5%90%E5%B1%B1%E9%A7%85&destination=%E6%B8%A1%E6%9C%88%E6%A9%8B&waypoints=%E7%AB%B9%E6%9E%97%E3%81%AE%E5%B0%8F%E5%BE%84%7C%E5%A4%A9%E9%BE%8D%E5%AF%BA&travelmode=walking">嵯峨嵐山駅 → 竹林 → 天龍寺 → 渡月橋（徒歩ルート）</a></div>
+      <div class="stop"><span class="stop-t">11:35</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>渡月橋 ／ 昼食</h4><p>橋を渡って写真を撮ったら昼へ。候補は<a href="#lunch">04</a>に。</p></div></div>
+      <div class="move">▸ 嵐電（京福電鉄）嵐山 → 帷子ノ辻乗換 → 北野白梅町／約23分・250円均一
+        <br>→ 市バス204/205で金閣寺道（約5分）。JR派なら 嵯峨嵐山 → 円町 → バスでも同じくらい
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E5%B5%90%E9%9B%BB%E5%B5%90%E5%B1%B1%E9%A7%85&destination=%E9%87%91%E9%96%A3%E5%AF%BA&travelmode=transit">嵐山 → 金閣寺</a></div>
+      <div class="stop key"><span class="stop-t">14:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>金閣寺（鹿苑寺）</h4><p>拝観順路は一方通行で、一周30〜40分。午後は逆光ぎみですが、鏡湖池の水面に映る金閣は十分きれいです。</p>
+          <span class="tag must">■ 必須</span><span class="tag">9:00–17:00</span><span class="tag">大人500円／小中300円</span></div></div>
+      <div class="move">▸ 金閣寺道 → 市バス204/205で円町（約10分）→ JR嵯峨野線で梅小路京都西（約7分）
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E9%87%91%E9%96%A3%E5%AF%BA&destination=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&travelmode=transit">金閣寺 → 花伝抄</a></div>
+      <div class="stop"><span class="stop-t">15:50</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>帰館 → 温泉</h4><p>今日は早く戻れます。無料の貸切風呂5つと大浴場をはしごして、17:30の夕食へ。</p></div></div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day">
+    <div class="day-hd"><b>DAY 3</b><h3>9月18日（金）</h3><em>宿の目の前で、最後まで遊ぶ</em></div>
+    <div class="rail">
+      <div class="stop"><span class="stop-t">10:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>チェックアウト</h4><p>荷物はフロントに預けたまま出かけられます。</p></div></div>
+      <div class="move">▸ 徒歩5分
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E4%BA%AC%E9%83%BD%20%E6%A2%85%E5%B0%8F%E8%B7%AF%20%E8%8A%B1%E4%BC%9D%E6%8A%84&destination=%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8&travelmode=walking">花伝抄 → 京都鉄道博物館</a></div>
+      <div class="stop"><span class="stop-t">10:15</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>京都鉄道博物館</h4>
+          <p>SLスチーム号、扇形車庫、運転シミュレータ、巨大ジオラマ。昨日トロッコに乗ったばかりなので、あの線路の話がそのままつながります。</p>
+          <span class="tag">10:00–17:00（最終入館16:30）</span><span class="tag">大人1,500円前後／小中500円前後</span></div></div>
+      <div class="stop"><span class="stop-t">14:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>宿で荷物を受け取る</h4><p>梅小路京都西からJRで京都駅まで4分。</p></div></div>
+      <div class="stop"><span class="stop-t">14:30</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>京都駅で買い物</h4><p>伊勢丹・ポルタ・ASTYでお土産と、車内で食べる駅弁を。</p></div></div>
+      <div class="move">▸ のぞみ → 品川 → 山手線 → 井の頭線
+        <br><a class="gmap" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/dir/?api=1&origin=%E4%BA%AC%E9%83%BD%E9%A7%85&destination=%E9%AB%98%E4%BA%95%E6%88%B8%E9%A7%85&travelmode=transit">京都駅 → 高井戸駅</a></div>
+      <div class="stop"><span class="stop-t">15:15</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>帰路へ</h4><p>京都 → 品川 約2時間15分 → <b>高井戸 18:15頃</b></p></div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>この行程は3つの前提の上に立っています。</b>①お子さんが小学校中学年以上、②初日は高井戸7:40発が可能、③保津川下りは入れない。
+    どれかが違う場合の組み替えは <a href="#plans">09 もしもの差し替え</a> に用意しました。
+  </div>
+</section>
+
+<!-- ============ 04 昼ごはん ============ -->
+<section class="sec" id="lunch">
+  <div class="sec-hd"><span class="sec-no">04</span><h2>お昼ごはん候補</h2><span class="memo">朝夕は宿・昼だけ外</span></div>
+
+  <div class="lunch">
+    <div class="lunch-hd"><b>DAY 1</b><h3>9/16（水）四条大橋</h3><span>ここは固定</span></div>
+    <div class="pick reco"><span class="pick-n">★</span>
+      <div><h4>東華菜館 本店<span class="yen">1人 1,800–2,300円</span></h4>
+        <p><b>安く抑えるコツ：コースを頼まない。</b>コースは6,600円〜＋サービス料10%ですが、一品料理なら炒飯880円・酢豚・青椒肉絲・麻婆豆腐・春巻が各1,000円前後で、<b>サービス料もかかりません</b>。4人で4〜5皿＋ごはんを取り分けて総額7,000〜9,000円が目安。一皿が大きいので頼みすぎ注意。</p>
+        <span class="where">四条大橋西詰／11:30–14:30 L.O.／火曜定休／☎075-221-1147</span></div></div>
+    <div class="pick"><span class="pick-n">2</span>
+      <div><h4>満席・臨時休業だったら<span class="yen">1人 1,000円前後</span></h4>
+        <p>四条河原町の高島屋・藤井大丸の食堂フロア、新京極や寺町の商店街まで徒歩5分。<b>ただしエレベーターは食事客しか乗れない</b>ので、その場合は3日目の昼に振り替えを。</p>
+        <span class="where">四条河原町一帯</span></div></div>
+  </div>
+
+  <div class="lunch">
+    <div class="lunch-hd"><b>DAY 2</b><h3>9/17（木）嵐山・渡月橋まわり</h3><span>12時前に入るのが鍵</span></div>
+    <div class="pick reco"><span class="pick-n">1</span>
+      <div><h4>戸隠（とがくし）<span class="yen">1人 1,000–1,400円</span></h4>
+        <p>渡月橋のすぐ北、そば・うどんのセットメニューが豊富な店。天ぷらや小丼の組み合わせが選べるので、子どもと大人で量を変えやすい。嵐山では良心的な価格帯です。</p>
+        <span class="where">嵯峨中ノ島町／11:00–15:00</span></div></div>
+    <div class="pick"><span class="pick-n">2</span>
+      <div><h4>嵐山亭（うどん）<span class="yen">1人 1,000–1,500円</span></h4>
+        <p>渡月橋の手前、大通りの喧騒から一本外れた場所。11時開店と同時なら待ちなしで入れます。カレーうどんやぶっかけなど、子どもが食べやすいメニューが中心。<b>水曜定休（9/17は木曜なので営業）</b>。</p>
+        <span class="where">嵯峨中ノ島町／11:00–15:00</span></div></div>
+    <div class="pick"><span class="pick-n">3</span>
+      <div><h4>可楽餅のコロッケで食べ歩き<span class="yen">1人 500–900円</span></h4>
+        <p>嵐山のメインストリートにあるコロッケとメンチカツの店。渡月橋の河原に腰かけて食べれば、待ち時間も席取りもゼロ。<b>金閣寺へ早く移動したい日に一番効く選択肢</b>。現金のみ。</p>
+        <span class="where">嵯峨天龍寺芒ノ馬場町／10:00–17:00</span></div></div>
+    <div class="pick"><span class="pick-n">4</span>
+      <div><h4>嵐山よしむら（そば）<span class="yen">1人 1,500–2,000円</span></h4>
+        <p>渡月橋と嵐山を見下ろす2階席が名物。景色代込みの値段で、昼どきは行列必至。眺めを優先するなら11時前に並ぶ覚悟で。</p>
+        <span class="where">渡月橋北詰／11:00–16:00</span></div></div>
+  </div>
+
+  <div class="lunch">
+    <div class="lunch-hd"><b>DAY 3</b><h3>9/18（金）京都鉄道博物館の中で</h3><span>外に出ずに完結</span></div>
+    <div class="pick reco"><span class="pick-n">1</span>
+      <div><h4>食堂車（ナシ20形）＋お弁当ブース<span class="yen">1人 900–1,600円</span></h4>
+        <p>ブルートレインの本物の食堂車で駅弁を食べられます。SL弁当、幕の内、車両をかたどった容器のものも。<b>この旅で一番「体験」になる昼ごはん</b>。※ブースで買ったお弁当だけ持ち込み可。</p>
+        <span class="where">館内プロムナード／混む前の11:00台推奨</span></div></div>
+    <div class="pick"><span class="pick-n">2</span>
+      <div><h4>本館2階レストラン<span class="yen">1人 800–1,300円</span></h4>
+        <p>約250席の食券制。窓からJR京都線と東海道新幹線が走るのが見えます。お子様メニューとベビーチェアあり。窓側を狙うなら11時に入るのが鉄則。</p>
+        <span class="where">本館2F／持ち込み弁当も可</span></div></div>
+    <div class="pick"><span class="pick-n">3</span>
+      <div><h4>京都駅で駅弁を買って持ち込み<span class="yen">1人 700–1,200円</span></h4>
+        <p>最安かつ待ち時間ゼロ。本館3階スカイテラスやトワイライトプラザのパラソル席で。帰りの新幹線用にもう一食分買っておくのも手。</p>
+        <span class="where">本館3F スカイテラス ほか</span></div></div>
+  </div>
+</section>
+
+<!-- ============ 05 エレベーター ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">05</span><h2>日本最古のエレベーター</h2><span class="memo">1924 / OTIS</span></div>
+  <div class="elev">
+    <svg viewBox="0 0 120 78" role="img" aria-label="時計の針のようなフロアインジケーター">
+      <path d="M8 70 A52 52 0 0 1 112 70" fill="none" stroke="#9a7a2c" stroke-width="2.5"/>
+      <path d="M18 70 A42 42 0 0 1 102 70" fill="none" stroke="#c2bba8" stroke-width="1"/>
+      <g fill="#9a7a2c" font-family="ui-monospace,monospace" font-size="9" text-anchor="middle">
+        <text x="22" y="56">1</text><text x="35" y="38">2</text><text x="60" y="30">3</text>
+        <text x="85" y="38">4</text><text x="98" y="56">5</text>
+      </g>
+      <line x1="60" y1="70" x2="88" y2="42" stroke="#b0362b" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="60" cy="70" r="5" fill="#9a7a2c"/>
+    </svg>
+    <div>
+      <h3>東華菜館 本店のエレベーター</h3>
+      <p>1924年にアメリカのオーチス社で製造され輸入された、現存する日本最古のエレベーター。格子形の蛇腹式手動扉、ブロンズ製の時計針式インジケーター、運転手がカーハンドルで動かす手動運転が、100年前のまま残っています。建物はヴォーリズが生涯で唯一手がけたレストラン建築（1926年築）。</p>
+      <p class="warn">見学だけの入店はできません。＝ 食事をすることが乗車券です。9/16（水）の昼に必ず組み込むこと。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 やること ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">06</span><h2>出発前にやること</h2><span class="memo">タップでチェック</span></div>
+  <div class="card" style="margin-bottom:14px;">
+    <h4>予約・手続き</h4>
+    <ul class="checks">
+      <li><label><input type="checkbox"><span><b>トロッコを予約</b>（9/17 9:02発・4名／乗車1か月前の8/17から）</span></label></li>
+      <li><label><input type="checkbox"><span>保津川下りを入れるか決める → <a href="#plans">09-A</a>。入れるならWEB事前予約</span></label></li>
+      <li><label><input type="checkbox"><span>東華菜館を予約（☎075-221-1147／9/16 12:00・4名）</span></label></li>
+      <li><label><input type="checkbox"><span>新幹線の座席を往復で確保（EX予約）</span></label></li>
+      <li><label><input type="checkbox"><span>アレルギー申告（9/13まで・TJKサイト）</span></label></li>
+      <li><label><input type="checkbox"><span>資格確認書類を人数分そろえる</span></label></li>
+      <li><label><input type="checkbox"><span>夕食の時間帯を決める（1日目20:00／2日目17:30が推奨）</span></label></li>
+      <li><label><input type="checkbox"><span>トロッコの運転日を最終確認（水曜運休・臨時運休あり）</span></label></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>持ち物</h4>
+    <ul class="checks">
+      <li><label><input type="checkbox"><span>交通ICカード（4人分）</span></label></li>
+      <li><label><input type="checkbox"><span>トロッコの予約票</span></label></li>
+      <li><label><input type="checkbox"><span>帽子・日焼け止め</span></label></li>
+      <li><label><input type="checkbox"><span>水筒／保冷ボトル</span></label></li>
+      <li><label><input type="checkbox"><span>歩きやすい靴（清水寺は坂）</span></label></li>
+      <li><label><input type="checkbox"><span>羽織るもの（トロッコは風が強い）</span></label></li>
+      <li><label><input type="checkbox"><span>モバイルバッテリー</span></label></li>
+      <li><label><input type="checkbox"><span>折りたたみ傘</span></label></li>
+      <li><label><input type="checkbox"><span>現金（コロッケ屋など現金のみの店あり）</span></label></li>
+      <li><label><input type="checkbox"><span>常備薬・絆創膏</span></label></li>
+    </ul>
+  </div>
+  <div class="note">
+    <b>トロッコは雨でも走りますが、5号車「ザ・リッチ号」は窓がありません。</b>予約時に1〜4号車を選べば雨天でも安心です。荒天時は運休の可能性があるので、当日朝に運行情報を確認してください。
+  </div>
+</section>
+
+<!-- ============ 07 お金 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">07</span><h2>費用のめやす</h2><span class="memo">大人2＋小人2</span></div>
+  <div class="card">
+    <table class="cost">
+      <tr><th>項目</th><th style="text-align:right;">概算</th></tr>
+      <tr><td>宿泊（1泊2食付・メンバー通常日）<br><small>大人11,550円×2＋子ども3,850円×2＝30,800円／泊</small></td><td class="n">61,600円</td></tr>
+      <tr><td>入湯税・京都市宿泊税</td><td class="n">現地精算</td></tr>
+      <tr><td>新幹線 往復（のぞみ指定席）</td><td class="n">約84,000円</td></tr>
+      <tr><td>トロッコ列車（片道・大人880円／小人440円）</td><td class="n">2,640円</td></tr>
+      <tr><td>市内交通（ICカードで都度払い）</td><td class="n">約5,000円</td></tr>
+      <tr><td>拝観料・入館料（東華菜館以外／金閣寺・清水寺・天龍寺・鉄道博物館）</td><td class="n">約9,000円</td></tr>
+      <tr><td>昼食3回</td><td class="n">約18,000円</td></tr>
+      <tr class="sum"><td>合計</td><td class="n">約180,000円</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 0 0;">
+      料金はいずれも目安です。運賃・拝観料・宿泊税は改定されることがあるので、直前に各公式サイトで確認してください。
+      市バスは1日あたり2〜3回なので、1日券（1,100円）は元が取れません。ICカードのままで大丈夫です。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 08 連絡先 ============ -->
+<section class="sec">
+  <div class="sec-hd"><span class="sec-no">08</span><h2>連絡先</h2><span class="memo">困ったとき</span></div>
+  <div class="cols">
+    <div class="card"><h4>宿・予約</h4>
+      <dl class="kv">
+        <dt>花伝抄</dt><dd>075-316-0055</dd>
+        <dt>TJK予約センター</dt><dd>03-3239-9814</dd>
+        <dt>予約番号</dt><dd>2026021696</dd>
+        <dt>自分の携帯</dt><dd>090-8439-9037</dd>
+      </dl></div>
+    <div class="card"><h4>行き先</h4>
+      <dl class="kv">
+        <dt>東華菜館</dt><dd>075-221-1147</dd>
+        <dt>嵯峨野観光鉄道</dt><dd>075-861-7444</dd>
+        <dt>金閣寺</dt><dd>075-461-0013</dd>
+        <dt>清水寺</dt><dd>075-551-1234</dd>
+        <dt>天龍寺</dt><dd>075-881-1235</dd>
+      </dl></div>
+  </div>
+  <div class="note">
+    キャンセルは3日前〜前日で利用料金の80％、当日は100％。変更が出たらすぐ予約センターへ（営業時間外は施設に直接）。
+  </div>
+</section>
+
+<!-- ============ 09 差し替え ============ -->
+<section class="sec" id="plans">
+  <div class="sec-hd"><span class="sec-no">09</span><h2>もしもの差し替え</h2><span class="memo">前提が変わったら</span></div>
+
+  <h3 style="font-size:15px;font-weight:800;letter-spacing:.06em;margin:8px 0 0;">A｜保津川下りを入れる — 2日目フル版</h3>
+  <p style="font-size:13px;color:var(--ink-2);margin:6px 0 0;">
+    トロッコで渓谷を<b>上って</b>、舟で同じ渓谷を<b>下って</b>戻る。嵐山でいちばん贅沢な一日です。
+    詰め込み前提なら金閣寺まで全部入りますが、<b>天龍寺だけは捨てます</b>。庭園を入れると金閣寺が消えるためです。
+  </p>
+
+  <div class="day">
+    <div class="day-hd"><b>DAY 2 alt</b><h3>9月17日（木）</h3><em>上って、下って、金閣寺</em></div>
+    <div class="rail">
+      <div class="stop"><span class="stop-t">07:50</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>宿を出発</h4><p>朝食は7:00の開場と同時に。ここが30分遅れると舟に間に合いません。</p></div></div>
+      <div class="stop key"><span class="stop-t">09:02</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>トロッコ嵯峨 → 亀岡</h4><p>25分。この後の乗り継ぎが詰まっているので、必ず1本目に。</p>
+          <span class="tag">大人880円／小人440円</span></div></div>
+      <div class="move">▸ トロッコ亀岡駅から京阪バスで乗船場へ／約15分・大人350円 小人180円（トロッコに接続）</div>
+      <div class="stop key"><span class="stop-t">10:00</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>保津川下り　亀岡 → 嵐山</h4>
+          <p>16kmを約2時間。船頭さんの竿さばきと激流、終盤には船で近づいてくる水上売店。<b>乗船中は約2時間トイレに行けません</b>ので、乗る前に必ず。</p>
+          <span class="tag must">■ 追加</span><span class="tag book">要予約</span><span class="tag">大人6,000円／小人4,500円</span><span class="tag">身長80cm未満は乗船不可</span></div></div>
+      <div class="stop"><span class="stop-t">12:10</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>渡月橋のたもとに到着 → 昼食</h4><p>舟は渡月橋のすぐ上流に着きます。そのまま <a href="#lunch">04</a> の嵐山の候補へ。</p></div></div>
+      <div class="stop key"><span class="stop-t">13:20</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>竹林の小径</h4><p>午後なので混みますが、通り抜けるだけなら30分。<b>天龍寺はここでカット</b>。</p></div></div>
+      <div class="move">▸ 嵐電 嵐山 14:00 → 帷子ノ辻乗換 → 北野白梅町 14:25 → 市バス → 金閣寺道</div>
+      <div class="stop key"><span class="stop-t">14:45</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>金閣寺</h4><p>一周30〜40分。閉門17:00なので余裕はあります。</p></div></div>
+      <div class="stop"><span class="stop-t">16:25</span><span class="stop-mk"></span>
+        <div class="stop-b"><h4>帰館</h4><p>金閣寺道 → バスで円町 → JRで梅小路京都西。17:30の夕食に間に合います。</p></div></div>
+    </div>
+  </div>
+
+  <div class="cols" style="margin-top:14px;">
+    <div class="card">
+      <h4>追加でかかるお金</h4>
+      <table class="cost">
+        <tr><td>保津川下り 大人6,000×2</td><td class="n">12,000円</td></tr>
+        <tr><td>保津川下り 小人4,500×2</td><td class="n">9,000円</td></tr>
+        <tr><td>京阪バス（乗船場まで）</td><td class="n">1,060円</td></tr>
+        <tr class="sum"><td>追加合計</td><td class="n">約22,000円</td></tr>
+      </table>
+      <p style="font-size:11.5px;color:var(--ink-2);margin:8px 0 0;">トロッコと合わせると、2日目だけで交通費が約25,000円になります。</p>
+    </div>
+    <div class="card">
+      <h4>予約と注意</h4>
+      <ul>
+        <li>定期船は9:00〜15:00の毎時発。<b>WEB事前予約が安全</b>（公式サイト／旅行サイト）</li>
+        <li>雨天は船にテントを張って通常運航。<b>暴風雨・増水は中止</b></li>
+        <li>2026/9/2は安全点検運休。9/17は運航予定だが直前に確認を</li>
+        <li>ライフジャケット着用。濡れる席もあるので替えの上着を</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;letter-spacing:.06em;margin:28px 0 0;">B｜さらに詰めるなら</h3>
+  <div class="cols" style="margin-top:10px;">
+    <div class="card">
+      <h4>1日目に足す — 八坂の塔</h4>
+      <p style="margin:0;">二年坂へ向かう途中、法観寺の五重塔（八坂の塔）が道の正面に立ちます。<b>ルート上なので時間ロスはほぼゼロ</b>。写真を撮るだけなら5分、拝観するなら400円・15分。</p>
+    </div>
+    <div class="card">
+      <h4>3日目に足す — 伏見稲荷大社</h4>
+      <p style="margin:0;">鉄道博物館を13:00で切り上げ、京都駅からJR奈良線で2駅5分。千本鳥居は無料・24時間参拝可で、子どもの食いつきも良い。13:30〜15:00で回って、16:30ののぞみ。<b>高井戸19:30着</b>になります。</p>
+    </div>
+    <div class="card">
+      <h4>タクシーで買える時間</h4>
+      <ul>
+        <li>清水寺 → 宿：約2,500円／20分（バス＋JRは40分）</li>
+        <li>金閣寺 → 宿：約3,000円／20分</li>
+        <li>嵐山 → 金閣寺：約3,500円／25分（嵐電35分）</li>
+      </ul>
+      <p style="margin:8px 0 0;font-size:12.5px;">4人なら1台。バス4人分（920円）との差は1,500〜2,500円で、<b>30分が買えます</b>。詰め込む日ほど効きます。</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;letter-spacing:.06em;margin:28px 0 0;">C｜退路 — 削るならここから</h3>
+  <div class="cols" style="margin-top:10px;">
+    <div class="card">
+      <h4>1日目</h4>
+      <p style="margin:0;">東華菜館 → 清水寺の徒歩50分を、市バス207で「清水道」へ（約10分）。祇園の散策を捨てるかわりに、40分と体力が戻ります。</p>
+    </div>
+    <div class="card">
+      <h4>2日目</h4>
+      <p style="margin:0;">天龍寺の庭園をカット。それでも足りなければ金閣寺を3日目の午前に移して、鉄道博物館と半日ずつに分けます。</p>
+    </div>
+    <div class="card">
+      <h4>3日目</h4>
+      <p style="margin:0;">鉄道博物館は本館2階（シミュレータ・ジオラマ）と扇形車庫だけで十分成立します。1時間半でも回れます。</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;letter-spacing:.06em;margin:28px 0 0;">D｜雨・台風のとき</h3>
+  <div class="note" style="margin-top:10px;">
+    <b>竹林はむしろ雨がいい。</b>人が減って、濡れた竹が黒く光ります。トロッコも雨天運行ですが、5号車「ザ・リッチ号」は窓がないので、予約時に1〜4号車を選んでください。
+    危ないのは<b>二年坂・三年坂の石畳</b>で、雨だとよく滑ります。全滅した場合は、全天候の鉄道博物館と京都水族館（どちらも宿から徒歩圏）に振り替えられます。ただし<b>鉄道博物館は水曜休館</b>なので、9/16に雨が降ったら水族館一択です。
+  </div>
+
+  <h3 style="font-size:15px;font-weight:800;letter-spacing:.06em;margin:28px 0 0;">E｜部屋割り</h3>
+  <div class="note" style="margin-top:10px;border-left-color:var(--rail);">
+    契約している部屋は<b>トリプル（和室＋シングルベッド3台・定員3名）が2室</b>です。定員の関係で4人1室にはできないので、<b>大人1＋子1を2室</b>に分けるのが基本形になります。隣り合った部屋を希望する場合は、予約センターかフロントに事前に伝えておくと通りやすくなります。
+  </div>
+</section>
+
+<footer class="foot">
+  <span>KYOTO 2026.09.16 – 09.18</span>
+  <span>EAST → WEST → UMEKOJI</span>
+</footer>
+
+<div style="text-align:center;margin-top:18px;">
+  <a href="./" style="display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--rail);text-decoration:none;border:1.5px solid var(--rail);padding:6px 16px;background:var(--paper-hi);box-shadow:2px 2px 0 rgba(26,35,32,.15);">⌂ ホームに戻る</a>
+</div>
+
+</div>
+</body>
+</html>
