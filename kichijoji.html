@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>吉祥寺 お買いものルート｜2026.07.20</title>
+<style>
+:root{
+  --bg:#eef3f5;
+  --card:#ffffff;
+  --ink:#152029;
+  --ink-2:#4a5b66;
+  --line:#d3dde3;
+  --sea:#1f6f8b;
+  --sea-d:#16505f;
+  --sun:#e2822b;
+  --stamp:#c0392b;
+  --cool:#eaf3f6;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular","Menlo","Consolas","Roboto Mono",monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--gothic);font-size:15px;line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(31,111,139,.05) 1px,transparent 1px);
+  background-size:16px 16px;
+}
+.wrap{max-width:680px;margin:0 auto;padding:16px 14px 80px;}
+
+/* ===== ヘッダー ===== */
+.hero{background:linear-gradient(135deg,var(--sea) 0%,var(--sea-d) 100%);color:#fff;
+  border-radius:16px;padding:22px 20px 20px;box-shadow:0 6px 18px rgba(22,80,95,.28);position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;right:-30px;top:-30px;width:130px;height:130px;
+  background:rgba(255,255,255,.10);border-radius:50%;}
+.hero .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;opacity:.85;}
+.hero h1{margin:6px 0 4px;font-size:clamp(22px,6.2vw,30px);line-height:1.25;letter-spacing:.02em;}
+.hero .date{font-family:var(--mono);font-size:13px;opacity:.95;}
+.hero .route{margin-top:12px;display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:rgba(255,255,255,.14);padding:7px 12px;border-radius:999px;font-size:13px;}
+.hero .route b{font-weight:700;}
+.chip{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 10px;font-size:11.5px;}
+
+/* ===== 注意メモ ===== */
+.note{margin-top:14px;background:#fff6ec;border:1px solid #f3d9b8;border-left:4px solid var(--sun);
+  border-radius:10px;padding:12px 14px;font-size:13.5px;color:#6b4a1e;}
+.note b{color:#c26a12;}
+
+/* ===== セクション見出し ===== */
+h2.sec{margin:26px 4px 12px;font-size:16px;letter-spacing:.04em;color:var(--sea-d);
+  display:flex;align-items:center;gap:9px;}
+h2.sec::before{content:"";width:9px;height:9px;background:var(--sea);border-radius:2px;transform:rotate(45deg);}
+
+/* ===== タイムライン ===== */
+.stop{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:14px 15px;margin:12px 0;box-shadow:0 2px 6px rgba(21,32,41,.05);position:relative;}
+.stop .top{display:flex;align-items:baseline;gap:10px;}
+.stop .no{flex:none;width:30px;height:30px;background:var(--sea);color:#fff;border-radius:50%;
+  font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 5px rgba(22,80,95,.35);}
+.stop .time{flex:none;font-family:var(--mono);font-size:12px;color:var(--sea-d);font-weight:700;
+  background:var(--cool);padding:2px 8px;border-radius:6px;margin-left:auto;}
+.stop h3{margin:0;font-size:16.5px;letter-spacing:.01em;}
+.stop .place{margin:2px 0 0 40px;font-size:12.5px;color:var(--ink-2);}
+.stop .place .fl{color:var(--sea-d);font-weight:700;}
+.stop .body{margin:10px 0 0 40px;}
+.buy{margin:8px 0 0;padding:10px 12px;background:var(--cool);border-radius:9px;font-size:14px;}
+.buy .lbl{font-size:11px;letter-spacing:.14em;color:var(--sea-d);font-weight:700;display:block;margin-bottom:3px;}
+.walk{margin:8px 0 0 40px;font-size:12px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
+.walk::before{content:"🚶";}
+.tag{display:inline-block;font-size:11px;background:#fdecea;color:var(--stamp);border:1px solid #f3c9c4;
+  border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:middle;}
+.tag.duty{background:#eef7f0;color:#2e7d4f;border-color:#c8e6d0;}
+a.map{display:inline-block;margin-top:8px;font-size:12.5px;color:var(--sea);text-decoration:none;
+  border:1px solid var(--sea);border-radius:8px;padding:4px 11px;}
+a.map:active{background:var(--cool);}
+a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
+
+.cross{margin:12px 0;text-align:center;font-size:12.5px;color:var(--ink-2);}
+.cross span{background:var(--bg);padding:0 12px;position:relative;}
+.cross::before{content:"";display:block;border-top:1px dashed var(--line);position:relative;top:11px;}
+
+/* ===== 買い物チェックリスト ===== */
+.list{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 4px;}
+.item{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:flex-start;cursor:pointer;}
+.item:last-child{border-bottom:none;}
+.item input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--sea);}
+.item .txt{flex:1;}
+.item .txt b{font-size:14.5px;}
+.item.done .txt b{text-decoration:line-through;color:var(--ink-2);}
+.item .meta{display:block;font-size:12px;color:var(--ink-2);margin-top:2px;}
+.item .price{font-family:var(--mono);font-size:12.5px;color:var(--sun);font-weight:700;white-space:nowrap;}
+
+/* ===== 予算 ===== */
+.budget{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.5px;}
+.budget td{padding:9px 12px;border-bottom:1px solid var(--line);}
+.budget tr:last-child td{border-bottom:none;font-weight:700;background:var(--cool);}
+.budget td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;}
+
+.foot{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-2);}
+.reset{display:inline-block;margin-top:8px;font-size:12px;color:var(--sea);background:none;border:1px solid var(--line);
+  border-radius:8px;padding:5px 12px;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker">SHOPPING ROUTE · KICHIJOJI</div>
+    <h1>吉祥寺 お買いものルート</h1>
+    <div class="date">2026.07.20 (月)</div>
+    <div class="route">
+      <b>高井戸</b> <span class="chip">京王井の頭線 直通 約12分</span> <b>吉祥寺</b>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>☀ 猛暑日プラン。</b>館内・駅ナカ中心の「一方向・折り返しなし」ルートです。
+    南口の<b>モンベル</b>を先に済ませ、<b>駅の館内通路で北口へ</b>抜けて北エリアを一直線に。
+    屋外を歩くのは店から店への短い区間だけ。こまめに水分補給を。
+  </div>
+
+  <h2 class="sec">当日の順路（目安タイム）</h2>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">1</div>
+      <h3>モンベル</h3>
+      <div class="time">10:45</div>
+    </div>
+    <div class="place"><span class="fl">丸井（マルイ）吉祥寺 8F</span>／吉祥寺南町1-7-1・公園口 徒歩2分</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">買う</span>
+        <b>ガルワール パック 15</b>（15Lデイパック／¥11,900）<br>
+        色：ブラック・ネイビー・ワインレッド・イエロー
+      </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=モンベル丸井吉祥寺店" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+  </div>
+
+  <div class="cross"><span>🚉 駅の館内通路（アトレ側）を通って北口へ ／ 屋外を避けて移動</span></div>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">2</div>
+      <h3>東京レジャーランド</h3>
+      <div class="time">11:15</div>
+    </div>
+    <div class="place"><span class="fl">吉祥寺本町1-3-7</span>／北口 徒歩2分（B1〜4F）</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">やること</span><b>クレーンゲーム 🎯</b>　駅から一番近いアミューズメント</div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=東京レジャーランド吉祥寺店" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+    <div class="walk">ロフトへ 徒歩約3分</div>
+  </div>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">3</div>
+      <h3>吉祥寺ロフト</h3>
+      <div class="time">11:50</div>
+    </div>
+    <div class="place"><span class="fl">いなりやビル 1〜5F</span>／吉祥寺本町1-10-1・北口 徒歩3分</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">見る（気に入れば購入）</span>
+        <b>山崎実業 tower ドライフードストッカー</b><br>
+        <a class="link" href="https://item.rakuten.co.jp/yamayuu/yj-4952/" target="_blank" rel="noopener">対象商品ページ ↗</a>
+      </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=吉祥寺ロフト" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">4</div>
+      <h3>昼食：サイゼリヤ</h3>
+      <div class="time">12:20</div>
+    </div>
+    <div class="place"><span class="fl">吉祥寺駅北口コピス前店（コスモ吉祥寺 3F）</span>／北口 徒歩2分</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">安いファミレス</span>ランチ ¥500前後〜。北ルートのちょうど中間で休憩＆涼む</div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=サイゼリヤ吉祥寺駅北口コピス前店" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">5</div>
+      <h3>ユニクロ</h3>
+      <div class="time">13:00</div>
+    </div>
+    <div class="place"><span class="fl">吉祥寺本町2-2-17（都内最大級 全7F）</span>／北口 徒歩4分</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">買う</span>
+        キャンペーン中の<b>パンツ ×3</b> 枚 ＋ <b>感動パンツ ×1</b> 枚<br>
+        <a class="link" href="https://www.uniqlo.com/jp/ja/special-feature/flyer/digital-flyer" target="_blank" rel="noopener">デジタルチラシで対象を確認 ↗</a>
+      </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=ユニクロ吉祥寺店" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+    <div class="walk">東急百貨店へ 徒歩約2分（さらに北へ）</div>
+  </div>
+
+  <div class="stop">
+    <div class="top">
+      <div class="no">6</div>
+      <h3>東急百貨店 吉祥寺店 <span class="tag">2店まとめて</span></h3>
+      <div class="time">13:40</div>
+    </div>
+    <div class="place"><span class="fl">吉祥寺本町2-3-1</span>／北口 徒歩7分・折り返し地点</div>
+    <div class="body">
+      <div class="buy"><span class="lbl">5F ／ ワークマン女子 <span class="tag duty">担当：岸 万葉</span></span>
+        WORKMAN Shoes 併設。気になるものをチェック
+      </div>
+      <div class="buy" style="margin-top:8px;"><span class="lbl">7F ／ ニトリ</span>
+        <b>超軽量麺丼「カル：エクレ（青格子）」</b> ← 青い大鉢／ラーメン皿
+      </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=東急百貨店吉祥寺店" target="_blank" rel="noopener">🗺 地図で見る</a>
+    </div>
+    <div class="walk">吉祥寺駅へ戻る 徒歩約7分 → 井の頭線で高井戸へ</div>
+  </div>
+
+  <div class="cross"><span>🚉 吉祥寺 15:00頃発 → 井の頭線 → 高井戸（19時までに余裕で帰宅）</span></div>
+
+  <h2 class="sec">買い物チェックリスト</h2>
+  <div class="list" id="list">
+    <label class="item"><input type="checkbox" data-k="montbell"><span class="txt"><b>モンベル ガルワール パック 15</b><span class="meta">丸井8F・15Lデイパック</span></span><span class="price">¥11,900</span></label>
+    <label class="item"><input type="checkbox" data-k="uniqlo-pants"><span class="txt"><b>ユニクロ パンツ ×3（キャンペーン）</b><span class="meta">本町2-2 ユニクロ</span></span><span class="price">概算</span></label>
+    <label class="item"><input type="checkbox" data-k="uniqlo-kando"><span class="txt"><b>ユニクロ 感動パンツ ×1</b><span class="meta">本町2-2 ユニクロ</span></span><span class="price">¥3,990~</span></label>
+    <label class="item"><input type="checkbox" data-k="nitori"><span class="txt"><b>ニトリ カル：エクレ 麺丼（青格子）</b><span class="meta">東急7F ニトリ</span></span><span class="price">¥1,000前後</span></label>
+    <label class="item"><input type="checkbox" data-k="workman"><span class="txt"><b>ワークマン女子（気になる物）</b><span class="meta">東急5F・担当 岸 万葉</span></span><span class="price">—</span></label>
+    <label class="item"><input type="checkbox" data-k="yamazaki"><span class="txt"><b>山崎実業 tower（ロフトで実物チェック）</b><span class="meta">ロフト・購入は任意</span></span><span class="price">見るだけ可</span></label>
+    <label class="item"><input type="checkbox" data-k="crane"><span class="txt"><b>クレーンゲーム 🎯</b><span class="meta">東京レジャーランド</span></span><span class="price">お好み</span></label>
+  </div>
+
+  <h2 class="sec">ざっくり予算</h2>
+  <table class="budget">
+    <tr><td>モンベル ガルワール パック 15</td><td>¥11,900</td></tr>
+    <tr><td>ユニクロ パンツ×3＋感動パンツ×1</td><td>約 ¥15,000</td></tr>
+    <tr><td>ニトリ カル：エクレ 麺丼</td><td>約 ¥1,000</td></tr>
+    <tr><td>昼食（サイゼリヤ）</td><td>約 ¥700</td></tr>
+    <tr><td>クレーンゲーム・雑費</td><td>約 ¥2,000</td></tr>
+    <tr><td>電車（高井戸⇄吉祥寺・往復）</td><td>約 ¥400</td></tr>
+    <tr><td>合計めやす</td><td>約 ¥31,000</td></tr>
+  </table>
+
+  <div class="foot">
+    暑いので無理せず休憩を挟んで。ワークマン女子＆山崎実業は「見て決める」枠。<br>
+    <button class="reset" id="reset">チェックをリセット</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY="kichijoji-20260720";
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||"{}");}catch(e){}
+  var boxes=document.querySelectorAll("#list input[type=checkbox]");
+  boxes.forEach(function(b){
+    var k=b.getAttribute("data-k");
+    if(saved[k]){b.checked=true;b.closest(".item").classList.add("done");}
+    b.addEventListener("change",function(){
+      b.closest(".item").classList.toggle("done",b.checked);
+      saved[k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+  document.getElementById("reset").addEventListener("click",function(){
+    boxes.forEach(function(b){b.checked=false;b.closest(".item").classList.remove("done");});
+    saved={};try{localStorage.removeItem(KEY);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
