@@ -43,6 +43,9 @@ body{
   background:rgba(255,255,255,.14);padding:7px 12px;border-radius:999px;font-size:13px;}
 .hero .route b{font-weight:700;}
 .chip{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 10px;font-size:11.5px;}
+.hero .members{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;}
+.hero .members .chip{background:rgba(255,255,255,.16);font-size:12px;padding:4px 11px;}
+.hero .members .boss{background:#fff;color:var(--sea-d);font-weight:700;}
 
 /* ===== 注意メモ ===== */
 .note{margin-top:14px;background:#fff6ec;border:1px solid #f3d9b8;border-left:4px solid var(--sun);
@@ -115,6 +118,10 @@ a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
     <div class="route">
       <b>高井戸</b> <span class="chip">京王井の頭線 直通 約12分</span> <b>吉祥寺</b>
     </div>
+    <div class="members">
+      <span class="chip">👥 大人2・小人2（計4名）</span>
+      <span class="chip boss">👑 責任者〈大社長〉岸 万葉</span>
+    </div>
   </div>
 
   <div class="note">
@@ -176,13 +183,13 @@ a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
   <div class="stop">
     <div class="top">
       <div class="no">4</div>
-      <h3>昼食：サイゼリヤ</h3>
+      <h3>昼食：ガスト</h3>
       <div class="time">12:20</div>
     </div>
-    <div class="place"><span class="fl">吉祥寺駅北口コピス前店（コスモ吉祥寺 3F）</span>／北口 徒歩2分</div>
+    <div class="place"><span class="fl">吉祥寺元町通店</span>／北口 徒歩3分</div>
     <div class="body">
-      <div class="buy"><span class="lbl">安いファミレス</span>ランチ ¥500前後〜。北ルートのちょうど中間で休憩＆涼む</div>
-      <a class="map" href="https://www.google.com/maps/search/?api=1&query=サイゼリヤ吉祥寺駅北口コピス前店" target="_blank" rel="noopener">🗺 地図で見る</a>
+      <div class="buy"><span class="lbl">安いファミレス（お子さま歓迎）</span>キッズメニュー・ドリンクバーあり。大人2・小人2でゆっくり休憩＆涼む</div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=ガスト吉祥寺元町通店" target="_blank" rel="noopener">🗺 地図で見る</a>
     </div>
   </div>
 
@@ -211,7 +218,7 @@ a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
     </div>
     <div class="place"><span class="fl">吉祥寺本町2-3-1</span>／北口 徒歩7分・折り返し地点</div>
     <div class="body">
-      <div class="buy"><span class="lbl">5F ／ ワークマン女子 <span class="tag duty">担当：岸 万葉</span></span>
+      <div class="buy"><span class="lbl">5F ／ ワークマン女子</span>
         WORKMAN Shoes 併設。気になるものをチェック
       </div>
       <div class="buy" style="margin-top:8px;"><span class="lbl">7F ／ ニトリ</span>
@@ -230,7 +237,7 @@ a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
     <label class="item"><input type="checkbox" data-k="uniqlo-pants"><span class="txt"><b>ユニクロ パンツ ×3（キャンペーン）</b><span class="meta">本町2-2 ユニクロ</span></span><span class="price">概算</span></label>
     <label class="item"><input type="checkbox" data-k="uniqlo-kando"><span class="txt"><b>ユニクロ 感動パンツ ×1</b><span class="meta">本町2-2 ユニクロ</span></span><span class="price">¥3,990~</span></label>
     <label class="item"><input type="checkbox" data-k="nitori"><span class="txt"><b>ニトリ カル：エクレ 麺丼（青格子）</b><span class="meta">東急7F ニトリ</span></span><span class="price">¥1,000前後</span></label>
-    <label class="item"><input type="checkbox" data-k="workman"><span class="txt"><b>ワークマン女子（気になる物）</b><span class="meta">東急5F・担当 岸 万葉</span></span><span class="price">—</span></label>
+    <label class="item"><input type="checkbox" data-k="workman"><span class="txt"><b>ワークマン女子（気になる物）</b><span class="meta">東急5F</span></span><span class="price">—</span></label>
     <label class="item"><input type="checkbox" data-k="yamazaki"><span class="txt"><b>山崎実業 tower（ロフトで実物チェック）</b><span class="meta">ロフト・購入は任意</span></span><span class="price">見るだけ可</span></label>
     <label class="item"><input type="checkbox" data-k="crane"><span class="txt"><b>クレーンゲーム 🎯</b><span class="meta">東京レジャーランド</span></span><span class="price">お好み</span></label>
   </div>
@@ -240,14 +247,15 @@ a.link{color:var(--sea);word-break:break-all;font-size:12.5px;}
     <tr><td>モンベル ガルワール パック 15</td><td>¥11,900</td></tr>
     <tr><td>ユニクロ パンツ×3＋感動パンツ×1</td><td>約 ¥15,000</td></tr>
     <tr><td>ニトリ カル：エクレ 麺丼</td><td>約 ¥1,000</td></tr>
-    <tr><td>昼食（サイゼリヤ）</td><td>約 ¥700</td></tr>
+    <tr><td>昼食（ガスト・4名）</td><td>約 ¥3,500</td></tr>
     <tr><td>クレーンゲーム・雑費</td><td>約 ¥2,000</td></tr>
-    <tr><td>電車（高井戸⇄吉祥寺・往復）</td><td>約 ¥400</td></tr>
-    <tr><td>合計めやす</td><td>約 ¥31,000</td></tr>
+    <tr><td>電車（高井戸⇄吉祥寺・4名往復）</td><td>約 ¥1,200</td></tr>
+    <tr><td>合計めやす</td><td>約 ¥35,000</td></tr>
   </table>
 
   <div class="foot">
     暑いので無理せず休憩を挟んで。ワークマン女子＆山崎実業は「見て決める」枠。<br>
+    引率責任者〈大社長〉岸 万葉／大人2・小人2の計4名。<br>
     <button class="reset" id="reset">チェックをリセット</button>
   </div>
 
